@@ -1,15 +1,14 @@
-const { workerData, parentPort,threadId,Worker } = require('worker_threads')
+const {isMainThread, parentPort, workerData, threadId, Worker} = require('worker_threads');
 
-parentPort.onmessage(() => {
+console.log(`Init ${threadId}`);
+
+parentPort.on('message', (message) =>{
     const token = workerData.token;
-    const id = Math.random()
+    const id = Math.random();
     const chatId = workerData.chatId;
     const userId = workerData.userId;
     const fullName = workerData.fullName;
     const isEnabled = workerData.isEnabled;
-    console.log(`RUN ${threadId}`)
-})
+    console.log(`Message from main in thread ${threadId}`);
+});
 
-
-
-parentPort.postMessage(null)
