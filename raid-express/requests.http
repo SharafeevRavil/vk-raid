@@ -1,0 +1,20 @@
+POST http://localhost:3000/trigger
+Content-Type: application/json
+
+{
+  "id": 610195397
+}
+
+###
+GET http://localhost:3000/status
+Accept: application/json
+
+###
+POST http://localhost:3000/enable
+Content-Type: application/json
+
+{
+  "isEnabled": true
+}
+
+###
