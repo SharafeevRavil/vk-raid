@@ -2,7 +2,7 @@ const workerService = require('./worker_service')
 const http_util = require('./http_util')
 module.exports = {
     status: (req, res) => {
-        res.send(infoResponse())
+        res.send(http_util.ok())
     },
     trigger: (req, res) => {
         const id = req.body.id;
