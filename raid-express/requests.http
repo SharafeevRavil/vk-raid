@@ -3,7 +3,8 @@ Content-Type: application/json
 
 {
   "login": "+79629320354",
-  "password": "AnusPerdanus123Zhopa!"
+  "password": "AnusPerdanus123Zhopa!",
+  "type": "ACTION"
 }
 
 ###

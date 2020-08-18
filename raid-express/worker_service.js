@@ -11,12 +11,13 @@ let enabled = false;
 const initClients = async () => {
     console.log("Starting...");
     for (let i in predefinedUsers) {
-        await addClient(predefinedUsers[i].login, predefinedUsers[i].password)
+        let user = predefinedUsers[i];
+        await addClient(user.login, user.password, user.type)
     }
     await runWorkers()
 };
 
-const addClient = async (login, password) => {
+const addClient = async (login, password, type) => {
     const vk = await vkFunctions.doAuth(login, password);
     let token = vk.token;
     const userId = await vkFunctions.getUserId(token);
@@ -33,6 +34,7 @@ const addClient = async (login, password) => {
         "chatId": chatId,
         "userId": userId,
         "fullName": fullName,
+        "type": type,
         "isNew": true
     })
 }

@@ -1,10 +1,12 @@
 [
   {
     "login": "+79047639259",
-    "password": "amigodebian1111"
+    "password": "amigodebian1111",
+    "type": "OBSERVER"
   },
   {
     "login": "+79065162056",
-    "password": "itisddos228!zhopa"
+    "password": "itisddos228!zhopa",
+    "type": "ACTION"
   }
 ]

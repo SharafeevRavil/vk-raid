@@ -1,5 +1,5 @@
 const workerService = require('./worker_service')
-
+const http_util = require('./http_util')
 module.exports = {
     status: (req, res) => {
         res.send(infoResponse())
@@ -10,7 +10,7 @@ module.exports = {
 
         worker.postMessage('hui');
 
-        res.send(infoResponse())
+        res.send(http_util.info())
     },
     enable: async (req, res) => {
         workerService.isEnabled = req.body.isEnabled;
@@ -28,22 +28,9 @@ module.exports = {
             })
             return
         }
-        await workerService.addClient(body.login, body.password)
+        await workerService.addClient(body.login, body.password, body.type)
         await workerService.runWorkers()
-        res.send(OKResponse())
+        res.send(http_util.ok())
     }
 }
 
-function infoResponse() {
-    return {
-        "count": workerService.vkClients.length,
-        "isEnabled": workerService.isEnabled,
-        "clients": workerService.vkClients.map(el => el.userId)
-    }
-}
-
-function OKResponse() {
-    return {
-        "message": "OK"
-    }
-}
