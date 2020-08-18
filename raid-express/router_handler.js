@@ -1,5 +1,6 @@
-const workerService = require('./worker_service')
-const http_util = require('./http_util')
+const workerService = require('./worker_service');
+const http_util = require('./http_util');
+
 module.exports = {
     status: (req, res) => {
         res.send(http_util.info())
@@ -25,12 +26,12 @@ module.exports = {
         if(body.login === undefined || body.password === undefined) {
             res.send({
                 "error": "login and password should be not empty"
-            })
+            });
             return
         }
         await workerService.addClient(body.login, body.password, body.type)
-        await workerService.runWorkers()
+        await workerService.runWorkers();
         res.send(http_util.ok())
     }
-}
+};
 

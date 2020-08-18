@@ -3,7 +3,7 @@ const {VK} = require('vk-io');
 const {HearManager} = require('@vk-io/hear');
 
 const hearManager = new HearManager();
-const knownUsers = new Map()
+const knownUsers = new Map();
 
 const fs = require('fs');
 
