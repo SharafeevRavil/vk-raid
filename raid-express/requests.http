@@ -1,3 +1,12 @@
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+  "login": "+79629320354",
+  "password": "AnusPerdanus123Zhopa!"
+}
+
+###
 POST http://localhost:3000/trigger
 Content-Type: application/json
 
@@ -6,11 +15,11 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/status
+GET http://localhost:3000/api/status
 Accept: application/json
 
 ###
-POST http://localhost:3000/enable
+POST http://localhost:3000/api/enable
 Content-Type: application/json
 
 {
