@@ -56,7 +56,7 @@ const runWorkers = async () => {
 function runService(workerData) {
     return new Promise((resolve, reject) => {
         console.log(`Create worker ${workerData.userId}`)
-        const worker = new Worker('./service.js', {workerData});
+        const worker = new Worker(`./service/${workerData.type.toLowerCase()}_service.js`, {workerData});
         workers.set(workerData.userId, worker)
         worker.on('message', () => console.log('message from worker'));
         resolve();

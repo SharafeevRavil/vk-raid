@@ -2,7 +2,7 @@ const workerService = require('./worker_service')
 const http_util = require('./http_util')
 module.exports = {
     status: (req, res) => {
-        res.send(http_util.ok())
+        res.send(http_util.info())
     },
     trigger: (req, res) => {
         const id = req.body.id;
@@ -22,7 +22,7 @@ module.exports = {
     },
     login: async (req, res) => {
         let body = req.body;
-        if(body.login === 'undefined' || body.password === 'undefined') {
+        if(body.login === undefined || body.password === undefined) {
             res.send({
                 "error": "login and password should be not empty"
             })
