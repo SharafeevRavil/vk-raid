@@ -1,5 +1,5 @@
-const workerService = require('./worker_service')
-const captchaService = require('./captcha_service')
+const workerService = require('./worker_service');
+const captchaService = require('./captcha_service');
 
 const express = require('express');
 const app = express();
